@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\BukuController;
 
-Route::get('/home', [PageController::class, 'home']);
-Route::get('/about', [PageController::class, 'about']);
+Route::get('/', function () {
+    return redirect()->route('buku.index');
+});
+
+// Route resource untuk CRUD buku
+Route::resource('buku', BukuController::class);
